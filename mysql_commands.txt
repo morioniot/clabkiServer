@@ -1,0 +1,26 @@
+
+0. Start mysql
+
+	 Local
+	 > mysql -u root -p
+
+	 Openshift
+
+	 > mysql
+
+1. Use Database
+
+ 	> USE clabkidb;
+
+2. Create Table
+
+ > CREATE TABLE users(id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, email CHAR(255) NOT NULL, name CHAR (80) NOT NULL);
+
+
+4. Check Table
+
+ > DESCRIBE users;
+
+5. INSERT
+
+  > INSERT INTO 'status' ('id','email','name') VALUES ("fercholas2012@gmail.com","nico");

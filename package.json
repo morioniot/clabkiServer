@@ -1,0 +1,17 @@
+{
+  "name": "clabki_server",
+  "version": "1.0.0",
+  "description": "Clabki serve development",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nicolas",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mysql": "^2.13.0"
+  }
+}
