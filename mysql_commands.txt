@@ -12,6 +12,10 @@
 
  	> USE clabkidb;
 
+ 	Openshift 
+
+ 	> USE clabkiserver;
+
 2. Create Table
 
  > CREATE TABLE users(id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, email CHAR(255) NOT NULL, name CHAR (80) NOT NULL);
@@ -23,4 +27,4 @@
 
 5. INSERT
 
-  > INSERT INTO 'status' ('id','email','name') VALUES ("fercholas2012@gmail.com","nico");
+  > INSERT INTO 'users' ('id','email','name') VALUES ("fercholas2012@gmail.com","nico");

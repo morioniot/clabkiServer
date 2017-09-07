@@ -5,7 +5,7 @@ const authentication = require('../../Authentication');
 
 const SignupRoutes = function(){
 
-	router.get('/', authentication.registerUser());
+	router.post('/', authentication.registerUser());
 	return router;
 };
 

@@ -28,7 +28,7 @@ setRoutes(server);
 
 // 400 Resource Not Found
 server.use( function(req, res, next) {
-    res.status(400).send({error: "Bad Request"});
+    res.status(400).send({error: "Resource Not Found"});
 });
 
 startExpress();

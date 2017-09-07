@@ -6,8 +6,7 @@ const user  = require('../../Models/Users/user.js')
 const registerUser = function() {
 	
 	return function (req,res,next){
-
-         const userData = {email: req.query.email, name: req.query.name};
+         const userData = {email: req.body.email, name: req.body.name};
          if(userData.email && userData.name){
             user.saveUser(userData, function(err,result){
             	if(!err)
