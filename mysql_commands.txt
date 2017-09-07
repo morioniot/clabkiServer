@@ -10,6 +10,8 @@
 
 1. Use Database
 
+ 	Local
+
  	> USE clabkidb;
 
  	Openshift 
@@ -18,13 +20,11 @@
 
 2. Create Table
 
- > CREATE TABLE users(id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, email CHAR(255) NOT NULL, name CHAR (80) NOT NULL);
+ > CREATE TABLE users(id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, email CHAR(255) NOT NULL UNIQUE, name CHAR (80) NOT NULL, gender CHAR(20) NOT NULL,  facebook_id CHAR(80) NOT NULL UNIQUE, facebook_token VARCHAR(320) NOT NULL UNIQUE, firebase_token CHAR(200) NOT NULL UNIQUE);
+
 
 
 4. Check Table
 
  > DESCRIBE users;
 
-5. INSERT
-
-  > INSERT INTO 'users' ('id','email','name') VALUES ("fercholas2012@gmail.com","nico");
