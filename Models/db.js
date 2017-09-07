@@ -6,7 +6,7 @@ const connectionInfo   = {
   host: ( process.env.OPENSHIFT_MYSQL_DB_HOST || 'localhost'),
   user: ( process.env.OPENSHIFT_MYSQL_DB_USERNAME || 'root'),
   password: (process.env.OPENSHIFT_MYSQL_DB_PASSWORD || 'p61404'),
-  database: (process.env.OPENSHIFT_GEAR_NAME || 'clabkidb'),
+  database: 'clabkidb',
 }
 
  
