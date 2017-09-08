@@ -10,7 +10,7 @@ const setRoutes = require('./Routes');
 // --------------------------------------------------------------------//
 const server = express();
 
-var startExpress = function() {
+const startExpress = function() {
 	server.set("port", (process.env.OPENSHIFT_NODEJS_PORT || 5000));
 	server.set("ip", (process.env.OPENSHIFT_NODEJS_IP || "localhost"))	
 	server.listen(server.get("port"), server.get("ip"), function(){

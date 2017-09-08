@@ -1,10 +1,15 @@
-const signup = require('./Signup/registration.js')
-
-var registerUser = function(userType){
-     return signup.registerUser();
+const signup = require('./Signup');
+ 
+const registerUser = function(){
+     return signup.registration.registerUser();
  };
 
 
+const getSignupStatus = function(){
+     return signup.status.getStatus();
+ };
+
 module.exports = {
-	registerUser : registerUser
+	registerUser : registerUser,
+	getSignupStatus : getSignupStatus
 }
