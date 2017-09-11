@@ -6,7 +6,7 @@ const user  = require('../../Models/Users/user.js')
 const getStatus = function() {
 	
 	return function (req,res,next){
-         const userFacebookId = req.body.facebook_id;
+         const userFacebookId = req.query.facebook_id;
          if(userFacebookId){
             user.getStatus(userFacebookId, function(err,result){
             	if(!err){
