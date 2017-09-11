@@ -10,7 +10,7 @@ const getStatus = function() {
          if(userFacebookId){
             user.getStatus(userFacebookId, function(err,result){
             	if(!err){
-                  	res.status(200).send({registered: result});
+                  res.status(200).send({registered: result});
             	}
             	else
             		res.status(500).send({error: err});
@@ -18,7 +18,7 @@ const getStatus = function() {
             });  
          }
          else{
-            res.status(500).send({error: "Please check the provided data"});
+            res.status(422).send({error: "Please check the provided data"});
          }
 	}  
 }
