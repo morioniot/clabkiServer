@@ -1,6 +1,6 @@
 
 // -------------- Local dependencies ---------------------------//
-const connection  = require('../../Models/db.js')
+const connection  = require('../../Models/init.js')
 // -------------------------------------------------------------------//
 
 const userModel = {};
