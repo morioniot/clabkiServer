@@ -2,6 +2,7 @@
 // -------------- Npm and node dependencies ---------------------------//
 const express    = require('express'); //Web Server
 const bodyParser = require('body-parser'); //Middleware
+require('es6-promise').polyfill();  // ECMAScript 6 Promise
 // -------------------------------------------------------------------//
 
 // -------------- Local dependencies -----------------------------------//
