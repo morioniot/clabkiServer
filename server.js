@@ -2,7 +2,6 @@
 // -------------- Npm and node dependencies ---------------------------//
 const express    = require('express'); //Web Server
 const bodyParser = require('body-parser'); //Middleware
-const db         = require('./Models/db.js')
 // -------------------------------------------------------------------//
 
 // -------------- Local dependencies -----------------------------------//
