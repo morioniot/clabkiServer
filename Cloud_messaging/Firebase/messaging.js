@@ -1,8 +1,35 @@
-var admin = require("firebase-admin");
 
-var serviceAccount = require("./serviceAccountKey.json");
+// -------------- Npm and node dependencies ---------------------------//
+const admin = require('./init.js');
+// -------------------------------------------------------------------//
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://clabki-b4c9e.firebaseio.com"
-});
+var payload = {
+  notification: {
+    title: "Notification sent from Clabki Server",
+    body: " :) "
+  }
+};
+
+const  sendMessageToUser = function() {
+	
+	return function (req,res,next){
+		const registrationToken = req.body.firebase_token || req.query.firebase_token;
+		console.log("Sending message to: " + registrationToken);
+		if(registrationToken != undefined){
+			admin.messaging().sendToDevice(registrationToken, payload)
+		  	.then(function(response) {
+		    	console.log("Successfully sent message:", response);
+		    	res.status(200).send({error: null});
+		  	})
+		  	.catch(function(err) {
+		    	console.log("Error sending message:", err);
+		    	res.status(500).send({error: err});
+		  	});
+		}
+        else{
+            res.status(422).send({error: "Please check the provided data"});
+        }
+	}  
+}
+
+module.exports = sendMessageToUser;

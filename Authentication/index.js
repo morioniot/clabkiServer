@@ -4,7 +4,6 @@ const registerUser = function(){
      return signup.registration.registerUser();
  };
 
-
 const getSignupStatus = function(){
      return signup.status.getStatus();
  };
