@@ -3,10 +3,17 @@
 const admin = require('./init.js');
 // -------------------------------------------------------------------//
 
+// var payload = {
+//   notification: {
+//     title: "Notification sent from Clabki Server",
+//     body: " :) "
+//   }
+// };
+
 var payload = {
-  notification: {
-    title: "Notification sent from Clabki Server",
-    body: " :) "
+  data: {
+    score: "850",
+    time: "2:45"
   }
 };
 
