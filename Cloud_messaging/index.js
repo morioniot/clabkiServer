@@ -1,6 +1,4 @@
 
-const sendMessageToUser = require('./Firebase/messaging.js');
+const firebase = require('./Firebase/messaging.js');
  
-module.exports = {
-	sendMessageToUser : sendMessageToUser
-}
+module.exports = firebase;

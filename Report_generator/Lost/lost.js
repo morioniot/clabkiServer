@@ -1,8 +1,8 @@
 
 // -------------- Npm and node dependencies ---------------------------//
-const pet = require('../../Models/Pets/pet.js');
+const pet      = require('../../Models/Pets/pet.js');
+const firebase = require('../../Cloud_messaging')
 // -------------------------------------------------------------------//
-
 
 const  lost = function() {
 	return function (req,res,next){
@@ -10,8 +10,16 @@ const  lost = function() {
 		if(petData.owner_id && petData.major && petData.minor){
 			pet.reportAsLost(petData, function(err,result){
 				if(!err){
-					if(result.affectedRows != 0)
+					if(result.affectedRows != 0){
 			      		res.status(200).send({error: null});
+						const payload = {
+							notification: {
+						    	title: "CLABKI PET HAS BEEN REPORTED AS LOST :o",
+						    	body: "Major" + petData.major + " Minor: " + petData.minor
+						 	}							
+						};
+						firebase.sendMessageToCommunity(payload);
+					}
 			      	else
 			      		res.status(200).send({error:"Pet is not registered/Already reported as lost"});
 				}
