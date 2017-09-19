@@ -23,5 +23,21 @@ petModel.reportAsLost = function (petData, callback) {
 	}
 };
 
+petModel.reportAsFound = function (petData, callback) {
+	if(connection){
+		const major = petData.major;
+		const minor = petData.minor;
+		const owner_id = petData.owner_id;
+		connection.query('UPDATE pets SET reported_as_lost = ?  WHERE major = ? AND minor = ? AND owner_id = ? AND reported_as_lost = ?', [false, major, minor, owner_id, true], function (err, result, fields) {
+		  if(err){
+		  	console.log("ERROR ** ** *");
+		  	console.log(err);
+		  	callback(err, null)
+		  }
+		  else
+			callback(null, result);
+		});	
+	}
+};
 
 module.exports = petModel;
