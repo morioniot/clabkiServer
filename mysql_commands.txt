@@ -22,7 +22,9 @@
 
  > CREATE TABLE users(id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, email CHAR(255) NOT NULL UNIQUE, name CHAR (80) NOT NULL, gender CHAR(20) NOT NULL,  facebook_id CHAR(80) NOT NULL UNIQUE, facebook_token VARCHAR(320) NOT NULL UNIQUE, firebase_token CHAR(200) NOT NULL UNIQUE);
 
+ > CREATE TABLE pets(id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, owner_id CHAR(80) NOT NULL, major INT(16) NOT NULL, minor INT(16) NOT NULL, reported_as_lost BOOL, last_known_position POINT);
 
+	CREATE UNIQUE INDEX major_minor_combination ON pets (major,minor);
 
 4. Check Table
 

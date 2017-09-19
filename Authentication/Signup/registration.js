@@ -1,6 +1,6 @@
 
 // -------------- Npm and node dependencies ---------------------------//
-const user  = require('../../Models/Users/user.js')
+const user  = require('../../Models/Users/user.js');
 // -------------------------------------------------------------------//
 
 const registerUser = function() {
