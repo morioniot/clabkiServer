@@ -1,4 +1,4 @@
-const lost = require('./Pets/lost.js');
+const lost = require('./Lost/lost.js');
  
 module.exports = {
 	lost : lost
