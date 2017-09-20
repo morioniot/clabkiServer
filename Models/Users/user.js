@@ -12,7 +12,7 @@ userModel.saveUser = function (userData, callback) {
 		  if(err){
 		  	console.log("ERROR ** ** *");
 		  	console.log(err);
-		  	callback(err, null)
+		  	callback(err, null);
 		  }
 		  else{
 		  	console.log("User has been saved in DataBase")
