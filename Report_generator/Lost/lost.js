@@ -1,7 +1,7 @@
 
 // -------------- Npm and node dependencies ---------------------------//
 const pet      = require('../../Models/Pets/pet.js');
-const firebase = require('../../Cloud_messaging')
+const firebase = require('../../Cloud_messaging');
 // -------------------------------------------------------------------//
 
 const  lost = function() {
@@ -15,7 +15,7 @@ const  lost = function() {
 						const payload = {
 							notification: {
 						    	title: "CLABKI PET HAS BEEN REPORTED AS LOST :o",
-						    	body: "Major" + petData.major + " Minor: " + petData.minor
+						    	body: "Major: " + petData.major + " Minor: " + petData.minor
 						 	}							
 						};
 						firebase.sendMessageToCommunity(payload);
@@ -28,7 +28,7 @@ const  lost = function() {
 			});  
 		}
 		else{
-		res.status(422).send({error: "Please check the provided data"});
+			res.status(422).send({error: "Please check the provided data"});
 		}
 	}  
 };
