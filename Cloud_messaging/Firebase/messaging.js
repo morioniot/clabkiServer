@@ -5,19 +5,11 @@ const user  = require('../../Models/Users/user.js');
 // -------------------------------------------------------------------//
 
 const  sendMessageToUser = function(user_token, payload, callback) {
-	admin.messaging().sendToDevice(user_token, payload)
-  	.then(function(response) {
-    	console.log("Successfully sent message:", response);
-    	callback(null, response);
-  	})
-  	.catch(function(err) {
-    	console.log("Error sending message:", err);
-    	callback(err, null);
-  	});  
+	sendFirebaseMessageBlocks(user_token,payload,1);
 };
 
 
-const sendMessageToCommunity = function(payload,callback){
+const sendMessageToCommunity = function(payload, callback){
 
 	console.log("***** Sending a message to community *****");
 	user.getUsersFirebaseTokens(function(err,users_tokens){
@@ -27,18 +19,35 @@ const sendMessageToCommunity = function(payload,callback){
 			callback(err, null);
 		}
 		else{
-			admin.messaging().sendToDevice(users_tokens, payload)
-		  	.then(function(response) {
-		    	console.log("Successfully sent message:", response);
-		    	callback(null, response);
-
-		  	})
-		  	.catch(function(err) {
-		    	console.log("Error sending message:", err);
-		    	callback(err, null);
-		  	});  
-		}			
+  			const users_number = users_tokens.length;
+  			sendFirebaseMessageBlocks(users_tokens,payload,1);
+		};			
 	}); 
+};
+
+
+const sendFirebaseMessageBlocks = function(register_token, payload, block_number){
+
+	const max_devices_allowed = 1;
+	const total_blocks_number = Math.ceil((register_token.length)/max_devices_allowed);
+
+
+	admin.messaging().sendToDevice(users_tokens, payload)
+  	.then(function(response) {
+    	console.log("Successfully sent message throught Firebase:", response);
+    	if(block_number < total_blocks_number){
+    		block_number += 1;
+    		sendFirebaseMessageBlocks(register_token,payload,block_number)
+    	}
+    	else{
+    		console.log("All firebase messages block has been sent");
+    		return 
+    	}
+  	})
+  	.catch(function(err) {
+    	console.log("Error sending message throught Firebase:", err);
+    	return err
+  	});
 };
 
 module.exports = {
