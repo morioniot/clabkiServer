@@ -1,9 +1,8 @@
 httpRequests_examples.txt
 
-
 openshift_credentials.txt
 
-serviceAccountKey.json
+#serviceAccountKey.json
 
 node_modules/
 
